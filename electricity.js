@@ -6,7 +6,7 @@ function Electricity() {
     TV: 3,
     Fridge: 13,
   };
-  var costAmount = 0
+  var costAmount = 0;
   //create a variable and assign it to false if no advance was taken
   var advancesTaken = false;
   var advancesNotTaken = false;
@@ -51,46 +51,38 @@ function Electricity() {
    * other wise return false and do nothing.
    */
   function useAppliance(appliance) {
-    if (advanceTaken(amount) && advancesTaken !== true) {
-      amount -= appliance;
-      advancesNotTaken = true;
-      return advancesNotTaken;
-    } else {
-      if (appliance === "Stove") {
-        unitsAvailable -= 10;
-      }
-      if (appliance === "Kettle") {
-        unitsAvailable -= 5;
-      }
-      if (appliance === "TV") {
-        unitsAvailable -= 3;
-      }
-      if (appliance === "Fridge") {
-        unitsAvailable -= 13;
-      }
+    if (appliance === "Stove") {
+      unitsAvailable -= 10;
     }
+    if (appliance === "Kettle") {
+      unitsAvailable -= 5;
+    }
+    if (appliance === "TV") {
+      unitsAvailable -= 3;
+    }
+    if (appliance === "Fridge") {
+      unitsAvailable -= 13;
+    }
+    else{
+      return false
+    }
+   
   }
 
-  
   function advanceTaken(amount) {
     if (amount === "advance" && advancesTaken !== true) {
       unitsAvailable += 21;
       advancesTaken = true;
       advance = 30;
       return advancesTaken;
-    } 
-    else {
+    } else {
       return false;
     }
   }
 
-  function totalAmountSpent() {
-    
-  }
+  function totalAmountSpent() {}
 
-  function totalUnitsBought() {
-    
-  }
+  function totalUnitsBought() {}
 
   return {
     advanceTaken,

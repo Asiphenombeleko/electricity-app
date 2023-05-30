@@ -36,12 +36,15 @@ topupNowElement.addEventListener("click", function () {
 // DOM events here
 useNowElement.addEventListener("click", function () {
   var radioBtnElement = document.querySelector(
-    'input[name="useElectricity"]:checked'
-  );
 
+    'input[name="useElectricity"]:checked'
+
+  );
+console.log(radioBtnElement.value)
   if(radioBtnElement.value){
-    electricity.topUpElectricity(radioBtnElement.value);
-    //electricity.useAppliance()
-   // useAppliance()
+    electricity.useAppliance(radioBtnElement.value);
+    unitsAvailableElement.innerHTML = electricity.getUnitsAvailable();
+    totalUnitsElement.innerHTML= electricity.getUnitsAvailable()
+    advanceTakenElement.innerHTML = electricity.useAppliance()
   }
 });
