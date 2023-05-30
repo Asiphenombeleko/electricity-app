@@ -10,7 +10,7 @@ const useNowElement = document.querySelector(".useNow");
 const usageRadioElement = document.querySelector(".usage");
 
 if (localStorage["unitsAvailable"]) {
-    totalAvailableUnits= JSON.parse(localStorage["unitsAvailable"]);
+  totalAvailableUnits = JSON.parse(localStorage["unitsAvailable"]);
 }
 
 // Factory Function instance
@@ -18,16 +18,14 @@ const electricity = Electricity();
 
 // DOM events here
 topupNowElement.addEventListener("click", function () {
-  var topupRadioBtnElement = document.querySelector(
-    'input[name="buyElectricity"]:checked'
-  );
-  alert("hey");
-  var topup = topupRadioBtnElement.value();
-  if (topup) {
-    topUpElectricity();
-
+    var topupRadioBtnElement = document.querySelector(
+      'input[name="buyElectricity"]:checked'
+    );
+    if(topupRadioBtnElement.value){
+      electricity.topUpElectricity();
+      electricity.getUnitsAvailable();
+      unitsAvailableElement.innerHTML = Electricity.getUnitsAvailable();
   }
-  
 });
 
 // DOM events here
@@ -35,9 +33,8 @@ useNowElement.addEventListener("click", function () {
   var radioBtnElement = document.querySelector(
     'input[name="useElectricity"]:checked'
   );
-  var radioBtn = radioBtnElement.value();
-  alert("hey");
-  if (radioBtn) {
-    useAppliance();
+
+  if(radioBtnElement.value){
+    useAppliance()
   }
 });
