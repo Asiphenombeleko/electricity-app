@@ -1,46 +1,86 @@
 function Electricity() {
+  // do we want to go with this or array?
+  let appliances = {
+    Stove: 10,
+    Kettle: 5,
+    TV: 3,
+    Fridge: 13,
+  };
+//create a variable and assign it to false if no advance was taken
+  var advancesTaken = false;
+ 
+  //create a variable to store available units
+  let unitsAvailable = 0;
+  //create a variable for the advance top up and give it a value of 0
+  let advance = 0;
+  // create a variable that will store used electricity total
+  let usedUnits = 0;
+  //if the value of amount is 10 the increament units available with 7
+  function topUpElectricity(amount) {
+    if (advanceTaken(amount)) {
+      amount -= advance;
+      return advancesTaken;
+    } else {
+      if (amount === 10) {
+        unitsAvailable += 7;
+        return unitsAvailable;
+      }
+      //if the value of amount is 20 the increament units available with 14
 
-    // do we want to go with this or array? 
-    let appliances = {
-        'Stove': 10, 
-        'Kettle': 5, 
-        'TV': 3, 
-        'Fridge': 13
-    };
+      if (amount === 20) {
+        unitsAvailable += 14;
+        return unitsAvailable;
+      }
+      //if the value of amount is 50 the increament units available with 35
 
-    function topUpElectricity(amount) {
-
-
+      if (amount === 50) {
+        unitsAvailable += 35;
+        return unitsAvailable;
+      }
     }
+  }
 
-    function getUnitsAvailable() {
-         return unitsAvailable;
+  function getUnitsAvailable() {
+    return unitsAvailable;
+  }
+
+  /*
+   * return true and substract from unit available if there is enough units to use the appliance
+   * other wise return false and do nothing.
+   */
+  function useAppliance(appliance) {
+    if (advanceTaken(amount) && appliance=== "tv") {
+      unitsAvailable -= 21;
+      unitsAvailable -= 3
+      
+    } else {
+      return true;
+    
     }
+   
+  }
 
-    /*
-    * return true and substract from unit available if there is enough units to use the appliance
-    * other wise return false and do nothing.
-    */
-    function useAppliance(appliance) {
-        
+  function advanceTaken(amount) {
+    if (amount === "advance" && advancesTaken !== true) {
+      unitsAvailable += 21;
+      advancesTaken = true;
+      advance = 30;
+      return advancesTaken;
+    } else {
+      return false;
     }
+  }
 
-    function advanceTaken() {
-    }
+  function totalAmountSpent() {}
 
-    function totalAmountSpent() {
-    }
+  function totalUnitsBought() {}
 
-    function totalUnitsBought(){
-    }
-
-    return {
-        advanceTaken,
-        topUpElectricity,
-        getUnitsAvailable,
-        useAppliance,
-        totalAmountSpent,
-        totalUnitsBought
-
-    }
+  return {
+    advanceTaken,
+    topUpElectricity,
+    getUnitsAvailable,
+    useAppliance,
+    totalAmountSpent,
+    totalUnitsBought,
+  };
 }
