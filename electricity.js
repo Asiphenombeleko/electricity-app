@@ -6,6 +6,7 @@ function Electricity() {
     TV: 3,
     Fridge: 13,
   };
+  var costAmount = 0
   //create a variable and assign it to false if no advance was taken
   var advancesTaken = false;
   var advancesNotTaken = false;
@@ -22,19 +23,19 @@ function Electricity() {
       amount -= advance;
       return advancesTaken;
     } else {
-      if (amount === 10) {
+      if (amount == 10) {
         unitsAvailable += 7;
         return unitsAvailable;
       }
       //if the value of amount is 20 the increament units available with 14
 
-      if (amount === 20) {
+      if (amount == 20) {
         unitsAvailable += 14;
         return unitsAvailable;
       }
       //if the value of amount is 50 the increament units available with 35
 
-      if (amount === 50) {
+      if (amount == 50) {
         unitsAvailable += 35;
         return unitsAvailable;
       }
@@ -70,13 +71,15 @@ function Electricity() {
     }
   }
 
+  
   function advanceTaken(amount) {
     if (amount === "advance" && advancesTaken !== true) {
       unitsAvailable += 21;
       advancesTaken = true;
       advance = 30;
       return advancesTaken;
-    } else {
+    } 
+    else {
       return false;
     }
   }
@@ -85,7 +88,9 @@ function Electricity() {
     
   }
 
-  function totalUnitsBought() {}
+  function totalUnitsBought() {
+    
+  }
 
   return {
     advanceTaken,

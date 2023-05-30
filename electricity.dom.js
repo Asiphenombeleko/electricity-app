@@ -21,10 +21,15 @@ topupNowElement.addEventListener("click", function () {
     var topupRadioBtnElement = document.querySelector(
       'input[name="buyElectricity"]:checked'
     );
+
+    console.log(topupRadioBtnElement.value);
+
     if(topupRadioBtnElement.value){
-      electricity.topUpElectricity();
+      electricity.topUpElectricity(topupRadioBtnElement.value);
       electricity.getUnitsAvailable();
-      unitsAvailableElement.innerHTML = Electricity.getUnitsAvailable();
+      unitsAvailableElement.innerHTML = electricity.getUnitsAvailable();
+      totalUnitsElement.innerHTML= electricity.getUnitsAvailable()
+      advanceTakenElement.innerHTML = electricity.advanceTaken()
   }
 });
 
@@ -35,6 +40,8 @@ useNowElement.addEventListener("click", function () {
   );
 
   if(radioBtnElement.value){
-    useAppliance()
+    electricity.topUpElectricity(radioBtnElement.value);
+    //electricity.useAppliance()
+   // useAppliance()
   }
 });
